@@ -15,6 +15,7 @@ export namespace Components {
     'opened': boolean;
     'title': string;
   }
+  interface MpStockFinder {}
   interface MpStockPrice {
     'stockSymbol': string;
   }
@@ -43,6 +44,12 @@ declare global {
     new (): HTMLMpSideDrawerElement;
   };
 
+  interface HTMLMpStockFinderElement extends Components.MpStockFinder, HTMLStencilElement {}
+  var HTMLMpStockFinderElement: {
+    prototype: HTMLMpStockFinderElement;
+    new (): HTMLMpStockFinderElement;
+  };
+
   interface HTMLMpStockPriceElement extends Components.MpStockPrice, HTMLStencilElement {}
   var HTMLMpStockPriceElement: {
     prototype: HTMLMpStockPriceElement;
@@ -56,6 +63,7 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'mp-side-drawer': HTMLMpSideDrawerElement;
+    'mp-stock-finder': HTMLMpStockFinderElement;
     'mp-stock-price': HTMLMpStockPriceElement;
     'my-component': HTMLMyComponentElement;
   }
@@ -65,6 +73,9 @@ declare namespace LocalJSX {
   interface MpSideDrawer {
     'opened'?: boolean;
     'title'?: string;
+  }
+  interface MpStockFinder {
+    'onMpSymbolSelected'?: (event: CustomEvent<string>) => void;
   }
   interface MpStockPrice {
     'stockSymbol'?: string;
@@ -86,6 +97,7 @@ declare namespace LocalJSX {
 
   interface IntrinsicElements {
     'mp-side-drawer': MpSideDrawer;
+    'mp-stock-finder': MpStockFinder;
     'mp-stock-price': MpStockPrice;
     'my-component': MyComponent;
   }
@@ -98,6 +110,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'mp-side-drawer': LocalJSX.MpSideDrawer & JSXBase.HTMLAttributes<HTMLMpSideDrawerElement>;
+      'mp-stock-finder': LocalJSX.MpStockFinder & JSXBase.HTMLAttributes<HTMLMpStockFinderElement>;
       'mp-stock-price': LocalJSX.MpStockPrice & JSXBase.HTMLAttributes<HTMLMpStockPriceElement>;
       'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
     }
