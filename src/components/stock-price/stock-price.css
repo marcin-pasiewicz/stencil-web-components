@@ -8,6 +8,11 @@
   max-width: 100%;
 }
 
+
+:host(.error) {
+  border-color: orange;
+}
+
 form input {
   font: inherit;
   color: purple;

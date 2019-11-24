@@ -55,7 +55,8 @@ export class StockPrice {
         this.fetchedPrice = +parsedRes['Global Quote']['05. price']
       })
       .catch(err => {
-        this.error = err.message
+        this.error = err.message;
+        this.fetchedPrice = null;
       })
   }
 
@@ -63,6 +64,12 @@ export class StockPrice {
   onStockSymbolSelected(event: CustomEvent) {
     if(event.detail && event.detail !== this.stockSymbol) {
       this.stockSymbol = event.detail
+    }
+  }
+
+  hostData() {
+    return {
+      class: this.error ? 'error' : '',
     }
   }
 
