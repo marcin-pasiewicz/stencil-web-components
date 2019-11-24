@@ -1,6 +1,6 @@
 :host {
   font-family: sans-serif;
-  border: 2px solid purple;
+  border: 2px solid var(--color-primary, purple);
   margin: 2rem;
   padding: 1rem;
   display: block;
@@ -15,7 +15,7 @@
 
 form input {
   font: inherit;
-  color: purple;
+  color: var(--color-primary, purple);
   padding: 0.1rem 0.25px;
   display: block;
   margin-bottom: 0.5rem;
@@ -29,21 +29,21 @@ form input:focus {
 form button {
   font: inherit;
   padding: 0.25rem 0.5rem;
-  border: 1px solid purple;
-  background: purple;
-  color: white;
+  border: 1px solid var(--color-primary, purple);
+  background: var(--color-primary, purple);
+  color: var(--color-primary-inverse, white);
   cursor: pointer;
 }
 
 form button:hover,
 form button:active {
-  background: #A900A9;
-  border-color: #A900A9;
+  background: var(--color-primary-highligth, #A900A9);
+  border-color: var(--color-primary-highligth, #A900A9);
 }
 
 form button:disabled {
-  background: #ccc;
-  border-color: #ccc;
-  color: white;
+  background: var(--color-primary-border, #ccc);
+  border-color: var(--color-primary-border, #ccc);
+  color: var(--color-primary-inverse, white);
   cursor: not-allowed;
 }
